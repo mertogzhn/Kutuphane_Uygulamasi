@@ -1,0 +1,26 @@
+﻿@model kutuphane24.Models.TblKategori
+
+@{
+    ViewData["Title"] = "KategoriGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Kategori Güncelle</h1>
+
+@using (Html.BeginForm("KategoriGuncelle", "TblKategoris", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        @Html.LabelFor(k => k.KategoriId)
+        @Html.TextBoxFor(k => k.KategoriId, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.KategoriAd)
+        @Html.TextBoxFor(k => k.KategoriAd, new { @class = "form-control" })
+        <br />
+    </div>
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+
+}

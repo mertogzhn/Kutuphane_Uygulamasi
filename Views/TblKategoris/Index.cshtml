@@ -1,0 +1,29 @@
+﻿@model IEnumerable<kutuphane24.Models.TblKategori>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Kategoriler</h2>
+
+<table class="table table-borderless">
+    <tr>
+        <th>Kategori Id</th>
+        <th>Kategori Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var ktg in Model)
+    {
+        <tr>
+            <td>@ktg.KategoriId</td>
+            <td>@ktg.KategoriAd</td>
+            <td><a href="/TblKategoris/KategoriSil/@ktg.KategoriId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/TblKategoris/KategoriGetir/@ktg.KategoriId" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/TblKategoris/KategoriEkle" class="btn btn-primary">Yeni Kategori Ekle</a> 

@@ -1,0 +1,49 @@
+﻿@model kutuphane24.Models.TblHareket
+
+@{
+    ViewData["Title"] = "HareketEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>HareketEkle</h1>
+
+<h4>TblHareket</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="HareketEkle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Kitap" class="control-label"></label>
+                <select asp-for="Kitap" class ="form-control" asp-items="ViewBag.Kitap"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Uye" class="control-label"></label>
+                <select asp-for="Uye" class ="form-control" asp-items="ViewBag.Uye"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Personel" class="control-label"></label>
+                <input asp-for="Personel" class="form-control" />
+                <span asp-validation-for="Personel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AlısTarih" class="control-label"></label>
+                <input asp-for="AlısTarih" class="form-control" />
+                <span asp-validation-for="AlısTarih" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="İadeTarih" class="control-label"></label>
+                <input asp-for="İadeTarih" class="form-control" />
+                <span asp-validation-for="İadeTarih" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

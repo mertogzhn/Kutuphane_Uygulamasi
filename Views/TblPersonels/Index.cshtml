@@ -1,0 +1,28 @@
+﻿@model IEnumerable<kutuphane24.Models.TblPersonel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Personeller</h2>
+
+<table class="table table-borderless">
+    <tr>
+        <th>Personel Id</th>
+        <th>Personel Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var ktg in Model)
+    {
+        <tr>
+            <td>@ktg.PersonelId</td>
+            <td>@ktg.Personel</td>
+            <td><a href="/TblPersonels/PersonelSil/@ktg.PersonelId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/TblPersonels/PersonelGetir/@ktg.PersonelId" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/TblPersonels/PersonelEkle" class="btn btn-primary">Yeni Personel Ekle</a>

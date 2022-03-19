@@ -1,0 +1,49 @@
+﻿@model kutuphane24.Models.TblKitap
+
+@{
+    ViewData["Title"] = "KitapEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>KitapEkle</h1>
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15 px">
+        <label>Kitap Adı</label>
+        @Html.TextBoxFor(k => k.Ad, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15 px">
+        <label>Kitap Kategori</label>
+        @Html.DropDownListFor(k => k.KategoriNavigation.KategoriId, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control"})
+       
+    </div>
+    <div style="margin-top:15 px">
+        <label>Yazar</label>
+        @Html.DropDownListFor(k => k.YazarNavigation.YazarId, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15 px">
+        <label>Basım Yılı</label>
+        @Html.TextBoxFor(k => k.BasimYil, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15 px">
+        <label>Yayın Evi</label>
+        @Html.TextBoxFor(k => k.YayinEvi, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15 px">
+        <label>Sayfa Sayısı</label>
+        @Html.TextBoxFor(k => k.Sayfa, new { @class = "form-control" })
+    </div>
+
+
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Kitap Ekle</button>
+    </div>
+
+</form>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

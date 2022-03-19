@@ -1,0 +1,43 @@
+﻿@model IEnumerable<kutuphane24.Models.TblUye>
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Üyeler</h2>
+
+<table class="table table-borderless">
+    <tr>
+        <th>Üye Id</th>
+        <th>Üye Adı</th>
+        <th>Üye Soyadı</th>
+        <th>Mail</th>
+        <th>Kullanıcı Adı</th>
+        <th>Şifre</th>
+        <th>Telefon</th>
+        <th>Okul</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var uye in Model)
+    {
+        <tr>
+            <td>@uye.UyeId</td>
+            <td>@uye.Ad</td>
+            <td>@uye.Soyad</td>
+            <td>@uye.Mail</td>
+            <td>@uye.KullaniciAdi</td>
+            <td>@uye.Sifre</td>
+            <td>@uye.Telefon</td>
+            <td>@uye.Okul</td>
+            <td><a href="/TblUyes/UyeSil/@uye.UyeId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/TblUyes/UyeGetir/@uye.UyeId" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+
+<a href="/TblUyes/UyeEkle" class="btn btn-primary">Yeni Üye Ekle</a>

@@ -1,0 +1,40 @@
+﻿@model kutuphane24.Models.TblHareket
+
+@{
+    ViewData["Title"] = "OduncVer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Ödünç Ver</h1>
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15 px">
+        <label>Üye ID</label>
+        @Html.TextBoxFor(k => k.Uye, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15 px">
+        <label>Kitap ID</label>
+        @Html.TextBoxFor(k => k.Kitap, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15 px">
+        <label>Personel ID</label>
+        @Html.TextBoxFor(k => k.Personel, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15 px">
+        <label>Kitap Alış Tarihi</label>
+        <input type="text" class="form-control" name="AlısTarih" value="@DateTime.Now.ToShortDateString()" />
+    </div>
+    <div style="margin-top:15 px">
+        <label>Kitap İade Tarihi</label>
+        <input type="text" class="form-control" name="İadeTarih" value="@DateTime.Now.AddDays(14).ToShortDateString()" />
+    </div>
+
+
+
+    <div style="margin-top:15px">
+        <button class="btn btn-group" style="background-color:#b200ff; color:#ffffff">Kitabı Ödünç Ver</button>
+    </div>
+
+</form>
+

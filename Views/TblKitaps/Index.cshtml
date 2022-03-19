@@ -1,0 +1,54 @@
+﻿@model IEnumerable<kutuphane24.Models.TblKitap>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Kitaplar</h1>
+
+<a href="/TblKitaps/KitapEkle" class="btn btn-primary" >Kitap Ekle</a>
+
+@*@using (Html.BeginForm("Index", "TblKitaps", FormMethod.Get))
+{
+    <div style="margin-bottom:15px; margin-top:15px;">
+        <b>Arama : </b>@Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </div>
+}*@
+<div style="margin-top: 20px">
+    <table class="table table-bordered">
+
+        <tr>
+            <th>Kitap ID</th>
+            <th>Kitap Adı</th>
+            <th>Kitap Yazarı</th>
+            <th>Kategori</th>
+            <th>Basım Yılı</th>
+            <th>Yayın Evi</th>
+            <th>Sayfa</th>
+            <th>Durum</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+
+        @foreach (var k in Model)
+        {
+            <tr>
+                <td>@k.KitapId</td>
+                <td>@k.Ad</td>
+                <td>@k.YazarNavigation.Ad &nbsp;@k.YazarNavigation.Soyad</td>
+                <td>@k.KategoriNavigation.KategoriAd</td>
+                <td>@k.BasimYil</td>
+                <td>@k.YayinEvi</td>
+                <td>@k.Sayfa</td>
+                <td>@k.Durum</td>
+                <td><a href="/TblKitaps/KitapSil/@k.KitapId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/TblKitaps/KitapGetir/@k.KitapId" class="btn btn-success">Güncelle</a></td>
+
+            </tr>
+        }
+    </table>
+</div>
+
+<a href="/TblKitaps/KitapEkle" class="btn btn-primary">Kitap Ekle</a>

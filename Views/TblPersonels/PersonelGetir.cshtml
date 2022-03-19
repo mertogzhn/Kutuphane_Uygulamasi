@@ -1,0 +1,24 @@
+﻿@model kutuphane24.Models.TblPersonel
+
+@{
+    ViewData["Title"] = "PersonelGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Personel Güncelle</h1>
+
+@using (Html.BeginForm("PersonelGuncelle", "TblPersonels", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        @Html.LabelFor(k => k.PersonelId)
+        @Html.TextBoxFor(k => k.PersonelId, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.Personel)
+        @Html.TextBoxFor(k => k.Personel, new { @class = "form-control" })
+        <br />
+    </div>
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+}

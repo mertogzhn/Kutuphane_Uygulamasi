@@ -1,0 +1,35 @@
+﻿@model IEnumerable<kutuphane24.Models.TblYazar>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Yazarlar</h1>
+
+<table class="table table-bordered">
+    <tr>
+
+
+        <th>Id</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Detay</th>
+        <td>Sil</td>
+        <td>Güncelle</td>
+    </tr>
+    @foreach (var y in Model)
+    {
+        <tr>
+            <td>@y.YazarId.</td>
+            <td>@y.Ad</td>
+            <td>@y.Soyad</td>
+            <td>@y.Detay</td>
+            <td>@Html.ActionLink("Sil", "YazarSil", new { id = y.YazarId }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek İstiyor Musunuz?')" })</td>
+            <td><a href="/TblYazars/YazarGetir/@y.YazarId" class="btn btn-success">Güncelle</a></td>
+
+        </tr>
+    }
+</table>
+
+<a class="btn btn-primary" href="/TblYazars/YazarEkle/">Yeni Yazar Ekle</a>

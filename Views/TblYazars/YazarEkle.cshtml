@@ -1,0 +1,32 @@
+﻿@model kutuphane24.Models.TblYazar
+
+@{
+    ViewData["Title"] = "YazarEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Yazar Ekle</h1>
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15 px">
+        <label>Yazar Adı</label>
+        @Html.TextBoxFor(y => y.Ad, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15 px">
+        <label>Yazar Soyadı</label>
+        @Html.TextBoxFor(y => y.Soyad, new { @class = "form-control" })
+    </div><div style="margin-top:15 px">
+        <label>Yazar Detay Bilgileri</label>
+        @Html.TextAreaFor(y => y.Detay, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Yazar Ekle</button>
+    </div>
+
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

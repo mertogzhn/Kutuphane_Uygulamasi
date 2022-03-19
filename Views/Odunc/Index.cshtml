@@ -1,0 +1,36 @@
+﻿@model IEnumerable<kutuphane24.Models.TblHareket>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ödünç Kitap Listesi</h2>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>İşlem ID</th>
+        <th>Kitap Adı</th>
+        <th>Üye</th>
+        <th>Personel</th>
+        <th>Alış Tarihi</th>
+        <th>İade Tarihi</th>
+        <th>İade Al</th>
+    </tr>
+
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.HareketId</td>
+            <td>@k.KitapNavigation.Ad</td>
+            <td>@k.UyeNavigation.Ad &nbsp;@k.UyeNavigation.Soyad</td>
+            <td>@k.Personel</td>
+            <td>@Convert.ToDateTime(k.AlısTarih).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(k.İadeTarih).ToString("dd/MM/yyyy")</td>
+            <td><a href="/Odunc/Odunciade/@k.HareketId" class="btn btn-group" style="background-color:#00ff90">Kitabı İade Et</a></td>
+
+
+        </tr>
+    }
+</table>
